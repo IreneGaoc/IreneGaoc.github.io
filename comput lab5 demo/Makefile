@@ -66,13 +66,13 @@ endif
 
 devserver:
 ifdef PORT
-	$(PELICAN) -lr'$(INPUTDIR)'-o'$(OUTPUTDIR)'-s'$(CONFFILE)''$(PELICANOPTS)'-p$(PORT)
+	$(PELICAN) -lr '$(INPUTDIR)' -o '$(OUTPUTDIR)' -s '$(CONFFILE)' '$(PELICANOPTS)' -p '$(PORT)'
 else
-	$(PELICAN) -lr'$(INPUTDIR)'-o'$(OUTPUTDIR)'-s'$(CONFFILE)''$(PELICANOPTS)'
+	'$(PELICAN)' -lr '$(INPUTDIR)' -o '$(OUTPUTDIR)' -s '$(CONFFILE)' $(PELICANOPTS)
 endif
 
 publish:
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
+	$(PELICAN) '$(INPUTDIR)' -o '$(OUTPUTDIR)' -s '$(CONFFILE)' $(PELICANOPTS)
 
 github: publish
 	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
